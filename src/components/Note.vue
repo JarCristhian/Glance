@@ -16,6 +16,7 @@ const userId = store.userId;
 const getDataU = async () => {
   if (store.userType) {
     const result = await supabase.from('notes').select().neq('user_id', userId)
+    console.log(result);
     data.value = result.data;
   } else {
     const result = await supabase.from('notes').select().eq('user_id', userId)
@@ -28,6 +29,7 @@ const getDataFilter = async (value) => {
   data.value = []
   if (store.userType) {
     const result = await supabase.from('notes').select().neq('user_id', userId).eq('language_id', value)
+    console.log(result);
     data.value = result.data;
   } else {
     const result = await supabase.from('notes').select().eq('user_id', userId).eq('language_id', value)

@@ -21,7 +21,7 @@ const theme = ref(null);
 const getUser = async () => {
   supabase.auth.onAuthStateChange(async (event, session) => {
     if (!session) {
-      // console.log("gettttt Userrr")
+      await supabase.auth.signOut()
       await supabase.auth.signInWithPassword({
         email: 'guest@gmail.com',
         password: '54321',
@@ -31,8 +31,8 @@ const getUser = async () => {
 }
 
 const getValues = async () => {
-  await store.getLan()
   await getUser()
+  await store.getLan()
 }
 
 const startMode = () => {
