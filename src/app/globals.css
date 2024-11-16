@@ -134,7 +134,7 @@ body {
 
   @font-face {
     font-family: "comicSans";
-    src: url("src/app/fonts/comici.woff") format("woff"),
+    src: url("/fonts/comici.woff") format("woff"),
       url("./fonts/comici.TTF") format("truetype");
   }
 
