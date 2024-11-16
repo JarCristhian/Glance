@@ -1,7 +1,7 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { ButtonNote } from "../components/me/buttonNote";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DialogNote } from "./notes/dialogNote";
 import { ButtonOption } from "../components/me/buttonOption";
 import Notes from "./notes/notes";

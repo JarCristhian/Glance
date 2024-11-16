@@ -27,6 +27,7 @@ function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [show, setShow] = useState<boolean>(true);
+  const [visible, setVisible] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
   const [nUser, setNUser] = useState<User>({
     name: "",
@@ -171,12 +172,47 @@ function Login() {
 
                     <div>
                       <Label>{lang ? English.pass : Spanish.pass}</Label>
-                      <Input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        autoComplete="off"
-                      />
+                      <div className="relative hover:scale-105 duration-100">
+                        <Input
+                          className="pr-8"
+                          type={visible ? "password" : "text"}
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          autoComplete="off"
+                        />
+
+                        <div
+                          className={
+                            password != ""
+                              ? "opacity-70 cursor-pointer"
+                              : "opacity-0"
+                          }
+                        >
+                          {visible ? (
+                            <svg
+                              onClick={() => setVisible(!visible)}
+                              viewBox="0 0 32 32"
+                              className="lucide lucide-search absolute right-3 top-2.5 h-4 w-4"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M28.034 17.29c.13.43.53.71.96.71v-.01a.993.993 0 0 0 .96-1.28C29.923 16.61 26.613 6 15.995 6S2.07 16.61 2.04 16.72c-.16.53.14 1.08.67 1.24s1.09-.14 1.25-.67C4.069 16.91 6.889 8 15.996 8c9.105 0 11.915 8.903 12.038 9.29M12 18a4 4 0 1 1 8 0a4 4 0 0 1-8 0m4-6a6 6 0 1 0 0 12a6 6 0 0 0 0-12"
+                              ></path>
+                            </svg>
+                          ) : (
+                            <svg
+                              onClick={() => setVisible(!visible)}
+                              viewBox="0 0 32 32"
+                              className="lucide lucide-search absolute right-3 top-2.5 h-4 w-4"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="m20.525 21.94l7.768 7.767a1 1 0 0 0 1.414-1.414l-26-26a1 1 0 1 0-1.414 1.414l5.19 5.19c-3.99 3.15-5.424 7.75-5.444 7.823c-.16.53.14 1.08.67 1.24s1.09-.14 1.25-.67c.073-.254 1.358-4.323 4.926-6.99l3.175 3.175a6 6 0 1 0 8.465 8.465m-1.419-1.42a4 4 0 1 1-5.627-5.627zm-3.553-8.504l2.633 2.634c.464.303.86.7 1.164 1.163l2.634 2.634q.015-.222.016-.447a6 6 0 0 0-6.447-5.984M10.59 7.053L12.135 8.6a12.2 12.2 0 0 1 3.861-.6c9.105 0 11.915 8.903 12.038 9.29c.13.43.53.71.96.71v-.01a.993.993 0 0 0 .96-1.28C29.923 16.61 26.613 6 15.995 6c-2.07 0-3.862.403-5.406 1.053"
+                              />
+                            </svg>
+                          )}
+                        </div>
+                      </div>
                     </div>
                     <div>
                       <div className="mb-2.5">

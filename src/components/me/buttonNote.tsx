@@ -8,12 +8,12 @@ export function ButtonNote({ onOpen, type }: Props) {
       <div
         className="fixed z-10 bottom-10 right-7 group flex justify-center items-center 
                 active:scale-90 duration-200 w-14 h-14 rounded-md p-2
-                shadow-lg hover:shadow-xl bg-white dark:bg-gray-800/70"
+                shadow-lg hover:shadow-xl bg-white dark:bg-gray-800/90"
       >
         <div
           className={
             type
-              ? "duration-1000  animate-bounce group-active:duration-none"
+              ? "duration-1000 animate-bounce group-active:duration-none"
               : "duration-100 group-active:rotate-90 grayscale"
           }
         >

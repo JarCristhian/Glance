@@ -161,7 +161,7 @@ export default function Notes({ onUpdate }: Props) {
                       key={i}
                       className={
                         tag.color +
-                        " flex-none select-non align-start items-center px-4 text-xs font-normal rounded-md"
+                        " flex-none select-non align-start items-center px-4 text-xs font-comic rounded-md"
                       }
                     >
                       {tag.name}

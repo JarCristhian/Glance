@@ -66,7 +66,7 @@ export function ButtonOption({ onMyNotes, onAllNotes }: Props) {
                   </g>
                 </svg>
               </div>
-              <span className="text-xs ml-1">
+              <span className="text-xs ml-1 font-comic">
                 {language ? English.optionNote : Spanish.optionNote}
               </span>
             </DropdownMenuItem>
@@ -85,7 +85,7 @@ export function ButtonOption({ onMyNotes, onAllNotes }: Props) {
                   </g>
                 </svg>
               </div>
-              <span className="text-xs ml-1">
+              <span className="text-xs ml-1 font-comic">
                 {language ? English.optionNotes : Spanish.optionNotes}
               </span>
             </DropdownMenuItem>

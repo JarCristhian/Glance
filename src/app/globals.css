@@ -117,11 +117,6 @@ body {
     height: 4px;
   }
 
-  /* .scrollbar::-webkit-scrollbar-track {
-    border-radius: 100vh;
-    background: #17171f;
-  } */
-
   .scrollbar-dark::-webkit-scrollbar-thumb {
     background: #242b36;
     border-radius: 100vh;
@@ -130,6 +125,17 @@ body {
   .scrollbar::-webkit-scrollbar-thumb {
     background: #dbdbdb;
     border-radius: 100vh;
+  }
+
+  ::selection {
+    background: #374151;
+    color: #fff;
+  }
+
+  @font-face {
+    font-family: "comicSans";
+    src: url("./fonts/comici.woff") format("woff"),
+      url("./fonts/comici.ttf") format("truetype");
   }
 
   .loader {
@@ -162,11 +168,6 @@ body {
   .loader::before {
     left: -4.5px;
     animation-delay: 0s;
-  }
-
-  ::selection {
-    background: #374151;
-    color: #fff;
   }
 
   @keyframes animloader {
