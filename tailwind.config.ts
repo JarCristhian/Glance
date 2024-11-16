@@ -74,6 +74,9 @@ const config: Config = {
         },
       },
     },
+    fontFamily: {
+      comic: "Comic Sans MS",
+    },
   },
   plugins: [require("tailwindcss-animate")],
 };

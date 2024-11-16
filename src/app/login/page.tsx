@@ -27,6 +27,7 @@ function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [show, setShow] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [nUser, setNUser] = useState<User>({
     name: "",
     email: "",
@@ -56,12 +57,13 @@ function Login() {
       toast.error(message);
       return;
     }
-
+    setLoading(true);
     const responseNextAuth = await signIn("credentials", {
       email: email + "@gmail.com",
       password,
       redirect: false,
     });
+    setLoading(false);
 
     if (responseNextAuth?.error) {
       toast.error("Tu Usuario es incorrecto.");
@@ -148,13 +150,16 @@ function Login() {
                       Glance
                     </h1>
                     <TextAnimation
-                      className="text-sm text-muted-foreground select-none"
+                      className="text-sm text-muted-foreground select-none font-comic"
                       text={lang ? English.welcome : Spanish.welcome}
                     />
                   </div>
                 </div>
                 {show ? (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-6  font-comic"
+                  >
                     <div>
                       <Label>{lang ? English.user : Spanish.user}</Label>
                       <Input
@@ -177,8 +182,138 @@ function Login() {
                       <div className="mb-2.5">
                         <button
                           type="submit"
-                          className="rounded-full w-full mt-2 border cursor-pointer border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 px-4 sm:px-5"
+                          className="rounded-full w-full active:scale-95 duration-75 mt-2 border cursor-pointer border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 px-4 sm:px-5"
                         >
+                          {loading && (
+                            <svg
+                              width="1.3em"
+                              height="1.3em"
+                              viewBox="0 0 24 24"
+                            >
+                              <rect
+                                width={2.8}
+                                height={12}
+                                x={1}
+                                y={6}
+                                fill="currentColor"
+                              >
+                                <animate
+                                  id="svgSpinnersBarsScale0"
+                                  attributeName="y"
+                                  begin="0;svgSpinnersBarsScale1.end-0.1s"
+                                  calcMode="spline"
+                                  dur="0.6s"
+                                  keySplines=".36,.61,.3,.98;.36,.61,.3,.98"
+                                  values="6;1;6"
+                                ></animate>
+                                <animate
+                                  attributeName="height"
+                                  begin="0;svgSpinnersBarsScale1.end-0.1s"
+                                  calcMode="spline"
+                                  dur="0.6s"
+                                  keySplines=".36,.61,.3,.98;.36,.61,.3,.98"
+                                  values="12;22;12"
+                                ></animate>
+                              </rect>
+                              <rect
+                                width={2.8}
+                                height={12}
+                                x={5.8}
+                                y={6}
+                                fill="currentColor"
+                              >
+                                <animate
+                                  attributeName="y"
+                                  begin="svgSpinnersBarsScale0.begin+0.1s"
+                                  calcMode="spline"
+                                  dur="0.6s"
+                                  keySplines=".36,.61,.3,.98;.36,.61,.3,.98"
+                                  values="6;1;6"
+                                ></animate>
+                                <animate
+                                  attributeName="height"
+                                  begin="svgSpinnersBarsScale0.begin+0.1s"
+                                  calcMode="spline"
+                                  dur="0.6s"
+                                  keySplines=".36,.61,.3,.98;.36,.61,.3,.98"
+                                  values="12;22;12"
+                                ></animate>
+                              </rect>
+                              <rect
+                                width={2.8}
+                                height={12}
+                                x={10.6}
+                                y={6}
+                                fill="currentColor"
+                              >
+                                <animate
+                                  attributeName="y"
+                                  begin="svgSpinnersBarsScale0.begin+0.2s"
+                                  calcMode="spline"
+                                  dur="0.6s"
+                                  keySplines=".36,.61,.3,.98;.36,.61,.3,.98"
+                                  values="6;1;6"
+                                ></animate>
+                                <animate
+                                  attributeName="height"
+                                  begin="svgSpinnersBarsScale0.begin+0.2s"
+                                  calcMode="spline"
+                                  dur="0.6s"
+                                  keySplines=".36,.61,.3,.98;.36,.61,.3,.98"
+                                  values="12;22;12"
+                                ></animate>
+                              </rect>
+                              <rect
+                                width={2.8}
+                                height={12}
+                                x={15.4}
+                                y={6}
+                                fill="currentColor"
+                              >
+                                <animate
+                                  attributeName="y"
+                                  begin="svgSpinnersBarsScale0.begin+0.3s"
+                                  calcMode="spline"
+                                  dur="0.6s"
+                                  keySplines=".36,.61,.3,.98;.36,.61,.3,.98"
+                                  values="6;1;6"
+                                ></animate>
+                                <animate
+                                  attributeName="height"
+                                  begin="svgSpinnersBarsScale0.begin+0.3s"
+                                  calcMode="spline"
+                                  dur="0.6s"
+                                  keySplines=".36,.61,.3,.98;.36,.61,.3,.98"
+                                  values="12;22;12"
+                                ></animate>
+                              </rect>
+                              <rect
+                                width={2.8}
+                                height={12}
+                                x={20.2}
+                                y={6}
+                                fill="currentColor"
+                              >
+                                <animate
+                                  id="svgSpinnersBarsScale1"
+                                  attributeName="y"
+                                  begin="svgSpinnersBarsScale0.begin+0.4s"
+                                  calcMode="spline"
+                                  dur="0.6s"
+                                  keySplines=".36,.61,.3,.98;.36,.61,.3,.98"
+                                  values="6;1;6"
+                                ></animate>
+                                <animate
+                                  attributeName="height"
+                                  begin="svgSpinnersBarsScale0.begin+0.4s"
+                                  calcMode="spline"
+                                  dur="0.6s"
+                                  keySplines=".36,.61,.3,.98;.36,.61,.3,.98"
+                                  values="12;22;12"
+                                ></animate>
+                              </rect>
+                            </svg>
+                          )}
                           {lang ? English.login : Spanish.login}
                         </button>
                       </div>
@@ -198,7 +333,7 @@ function Login() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
                   >
-                    <div className="space-y-5">
+                    <div className="space-y-5 font-comic">
                       <div>
                         <Label>{lang ? English.name : Spanish.name}</Label>
                         <Input
@@ -235,7 +370,7 @@ function Login() {
                         <div className="flex items-center gap-2">
                           <Button
                             variant="ghost"
-                            className="shadow-sm h-10 rounded-full"
+                            className="shadow-sm h-10 rounded-full hover:scale-105 active:scale-95 duration-75"
                             type="button"
                             onClick={() => setShow(true)}
                           >
@@ -244,7 +379,7 @@ function Login() {
 
                           <button
                             onClick={createUser}
-                            className="rounded-full w-full  border cursor-pointer border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 px-4 sm:px-5"
+                            className="rounded-full w-full hover:scale-105 active:scale-95 duration-75 border cursor-pointer border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 px-4 sm:px-5"
                           >
                             {lang ? English.register : Spanish.register}
                           </button>
@@ -276,31 +411,32 @@ function Login() {
                   </motion.a>
                   <motion.a
                     whileHover={{ scale: 1.1 }}
+                    href="https://instagram.com/jarcristhian"
+                    target="_blank"
                     className="text-muted-foreground/70 hover:text-primary opacity-50 w-6 h-6 cursor-pointer"
                   >
-                    <svg viewBox="0 0 1024 1024">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 24 24">
                       <path
-                        d="M512 378.7c-73.4 0-133.3 59.9-133.3 133.3S438.6 645.3 512 645.3S645.3 585.4 645.3 512S585.4 378.7 512 378.7zM911.8 512c0-55.2.5-109.9-2.6-165c-3.1-64-17.7-120.8-64.5-167.6c-46.9-46.9-103.6-61.4-167.6-64.5c-55.2-3.1-109.9-2.6-165-2.6c-55.2 0-109.9-.5-165 2.6c-64 3.1-120.8 17.7-167.6 64.5C132.6 226.3 118.1 283 115 347c-3.1 55.2-2.6 109.9-2.6 165s-.5 109.9 2.6 165c3.1 64 17.7 120.8 64.5 167.6c46.9 46.9 103.6 61.4 167.6 64.5c55.2 3.1 109.9 2.6 165 2.6c55.2 0 109.9.5 165-2.6c64-3.1 120.8-17.7 167.6-64.5c46.9-46.9 61.4-103.6 64.5-167.6c3.2-55.1 2.6-109.8 2.6-165zM512 717.1c-113.5 0-205.1-91.6-205.1-205.1S398.5 306.9 512 306.9S717.1 398.5 717.1 512S625.5 717.1 512 717.1zm213.5-370.7c-26.5 0-47.9-21.4-47.9-47.9s21.4-47.9 47.9-47.9s47.9 21.4 47.9 47.9a47.84 47.84 0 0 1-47.9 47.9z"
                         fill="currentColor"
+                        d="M12.001 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0-2a5 5 0 1 1 0 10a5 5 0 0 1 0-10m6.5-.25a1.25 1.25 0 0 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12.001 4c-2.474 0-2.878.007-4.029.058c-.784.037-1.31.142-1.798.332a2.9 2.9 0 0 0-1.08.703a2.9 2.9 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.007 9.075 4 9.461 4 12c0 2.475.007 2.878.058 4.029c.037.783.142 1.31.331 1.797c.17.435.37.748.702 1.08c.337.336.65.537 1.08.703c.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.475 0 2.878-.007 4.029-.058c.782-.037 1.308-.142 1.797-.331a2.9 2.9 0 0 0 1.08-.703c.337-.336.538-.649.704-1.08c.19-.492.296-1.018.332-1.8c.052-1.103.058-1.49.058-4.028c0-2.474-.007-2.878-.058-4.029c-.037-.782-.143-1.31-.332-1.798a2.9 2.9 0 0 0-.703-1.08a2.9 2.9 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.926 4.006 14.54 4 12 4m0-2c2.717 0 3.056.01 4.123.06c1.064.05 1.79.217 2.427.465c.66.254 1.216.598 1.772 1.153a4.9 4.9 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122s-.218 1.79-.465 2.428a4.9 4.9 0 0 1-1.153 1.772a4.9 4.9 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-1.067.047-1.406.06-4.123.06s-3.056-.01-4.123-.06c-1.064-.05-1.789-.218-2.427-.465a4.9 4.9 0 0 1-1.772-1.153a4.9 4.9 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.012 15.056 2 14.717 2 12s.01-3.056.06-4.122s.217-1.79.465-2.428a4.9 4.9 0 0 1 1.153-1.772A4.9 4.9 0 0 1 5.45 2.525c.637-.248 1.362-.415 2.427-.465C8.945 2.013 9.284 2 12.001 2"
                       ></path>
                     </svg>
                   </motion.a>
                   <motion.a
                     whileHover={{ scale: 1.1 }}
+                    href="https://x.com/cristhian_jar"
+                    target="_blank"
                     className="text-muted-foreground/70 hover:text-primary opacity-50 w-6 h-6 cursor-pointer"
                   >
-                    <svg viewBox="0 0 24 24">
-                      <g
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                      <path
                         fill="none"
                         stroke="currentColor"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={1.5}
-                        color="currentColor"
-                      >
-                        <path d="m7 17l4.194-4.193M17 7l-4.193 4.194m0 0L9.777 7H7l4.194 5.807m1.612-1.614L17 17h-2.778l-3.028-4.193"></path>
-                        <path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10"></path>
-                      </g>
+                        d="m13.081 10.712l-4.786-6.71a.6.6 0 0 0-.489-.252H5.28a.6.6 0 0 0-.488.948l6.127 8.59m2.162-2.576l6.127 8.59a.6.6 0 0 1-.488.948h-2.526a.6.6 0 0 1-.489-.252l-4.786-6.71m2.162-2.576l5.842-6.962m-8.004 9.538L5.077 20.25"
+                      ></path>
                     </svg>
                   </motion.a>
                 </div>

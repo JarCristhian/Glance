@@ -125,7 +125,7 @@ export function DialogNote({ show, onClose, setNote }: Props) {
       <Toaster position="top-left" duration={1000} />
       <Dialog open={show} onOpenChange={onClose}>
         <DialogContent
-          className="sm:max-w-[385px]"
+          className="sm:max-w-[385px] font-comic"
           onInteractOutside={(e) => {
             e.preventDefault();
           }}
@@ -352,7 +352,6 @@ export function DialogNote({ show, onClose, setNote }: Props) {
                             " flex-none select-non align-start items-center px-4 text-sm font-medium rounded-md"
                           }
                         >
-                          {" "}
                           {tag.name}
                         </span>
                       )}

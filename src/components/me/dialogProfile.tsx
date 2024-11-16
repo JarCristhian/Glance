@@ -169,7 +169,7 @@ export function DialogProfile({ show, onClose, setUpdate }: Props) {
                 </div>
                 <div className="mt-2">
                   <Label>{language ? "Image" : "Imagen"}</Label>
-                  <div className="flex gap-3 mt-2">
+                  <div className="overflow-x-scroll scrollbar dark:scrollbar-dark py-1 flex gap-3 mt-2">
                     <Image
                       onClick={() => changeImage("men")}
                       className={

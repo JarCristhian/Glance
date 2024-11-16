@@ -98,7 +98,7 @@ export default function Notes({ onUpdate }: Props) {
                               hover:scale-105 dark:hover:[background:linear-gradient(45deg,#0D0F15,#0D0F15)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.white)_100%)_border-box]
                               dark:hover:border-transparent animate-border"
           >
-            <div className="flex w-full flex-col gap-1">
+            <div className="flex w-full flex-col gap-1 font-comic">
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
                   <div className="font-semibold line-clamp-1 select-none">
