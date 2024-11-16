@@ -306,7 +306,7 @@ export function DialogCode({ show, onClose, update, data, languages }: Props) {
               </div>
             </div>
             <hr />
-            <DialogFooter className="mt-4">
+            <DialogFooter className="flex space-x-2 mt-4">
               <Button
                 variant="ghost"
                 className="shadow-sm select-none rounded-full"
