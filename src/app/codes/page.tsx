@@ -58,7 +58,7 @@ export default function MyCode() {
         update={() => setUpdate(update == 2 ? 0 : 2)}
       />
       <ButtonNote type={false} onOpen={openCodeModal} />
-      <div className="h-screen w-full p-4 font-[family-name:var(--font-geist-sans)]">
+      <div className="h-screen w-full p-4">
         <main className="items-center p-2 pt-11">
           <InputSearch setValue={setText} setShow={getShow} />
           <MenuLanguages
