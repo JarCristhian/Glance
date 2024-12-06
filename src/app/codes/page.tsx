@@ -18,11 +18,10 @@ export default function MyCode() {
   const [languages, setLanguages] = useState<GetL[]>([]);
   const [form, setForm] = useState<Get | null>();
   const codeService = new CodeService();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   const getLanguages = async () => {
     const result = await codeService.getLanguages(session?.user?.token);
-    // console.log(result);
     setLanguages(result);
   };
 
@@ -47,6 +46,14 @@ export default function MyCode() {
   const getShow = (type: number) => {
     setType(type);
   };
+
+  if (status === "loading") {
+    return (
+      <div className="loading-page bg-white dark:bg-[#0a0911]">
+        <span className="loader" />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -82,4 +89,3 @@ export default function MyCode() {
     </>
   );
 }
-// font-[family-name:var(--font-geist-mono)]

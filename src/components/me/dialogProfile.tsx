@@ -142,7 +142,10 @@ export function DialogProfile({ show, onClose, setUpdate }: Props) {
                   >
                     <div className="flex items-center w-10 h-10 text-gray-500 dark:text-gray-300">
                       {edit ? (
-                        <svg viewBox="0 0 24 24">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
                           <g
                             fill="none"
                             stroke="currentColor"
@@ -155,7 +158,10 @@ export function DialogProfile({ show, onClose, setUpdate }: Props) {
                           </g>
                         </svg>
                       ) : (
-                        <svg viewBox="0 0 48 48">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 48 48"
+                        >
                           <path
                             fill="currentColor"
                             fillRule="evenodd"
@@ -269,6 +275,7 @@ export function DialogProfile({ show, onClose, setUpdate }: Props) {
                 <div className="relative mt-5">
                   <div className="opacity-70">
                     <svg
+                      xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       className="lucide lucide-search absolute left-2 top-2.5 h-4 w-4 text-muted-foreground"
                     >
@@ -312,7 +319,12 @@ export function DialogProfile({ show, onClose, setUpdate }: Props) {
               onClick={() => updateProfile()}
             >
               {active && (
-                <svg width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1.5em"
+                  height="1.5em"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     fill="currentColor"
                     d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8A8 8 0 0 1 12 20Z"

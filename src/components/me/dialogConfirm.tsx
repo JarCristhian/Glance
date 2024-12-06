@@ -44,7 +44,11 @@ export function DialogConfirm({ show, onClose, setConfirm }: Confirm) {
           <DialogHeader>
             <div className="flex items-center gap-2">
               <div className="opacity-70 w-11 h-11 p-1 flex items-center">
-                <svg className="w-10 h-10" viewBox="0 0 24 24">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-10 h-10"
+                  viewBox="0 0 24 24"
+                >
                   <g
                     fill="none"
                     stroke="currentColor"
@@ -72,7 +76,7 @@ export function DialogConfirm({ show, onClose, setConfirm }: Confirm) {
             <Button
               size={"sm"}
               variant="ghost"
-              className="shadow-sm select-none"
+              className="shadow-sm select-none mr-1"
               type="button"
               onClick={() => setConfirmDelete(false)}
             >

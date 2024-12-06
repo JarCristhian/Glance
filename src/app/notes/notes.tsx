@@ -94,7 +94,7 @@ export default function Notes({ onUpdate }: Props) {
           onDoubleClick={() => setLovedNote(item.id)}
         >
           <div
-            className="flex flex-col items-start gap-2 p-3 shadow dark:border rounded-lg cursor-pointer text-left text-sm transition-all hover:bg-accent/70 
+            className="flex flex-col items-start gap-2 p-3 shadow dark:border rounded-lg cursor-pointer text-left text-sm transition-all hover:bg-accent/50 
                               hover:scale-105 dark:hover:[background:linear-gradient(45deg,#0D0F15,#0D0F15)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.white)_100%)_border-box]
                               dark:hover:border-transparent animate-border"
           >
@@ -111,7 +111,12 @@ export default function Notes({ onUpdate }: Props) {
                   </div>
                   {item.loved && (
                     <div className="opacity-50">
-                      <svg width="1em" height="1em" viewBox="0 0 24 24">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 24 24"
+                      >
                         <path
                           fill="currentColor"
                           fillOpacity={0}
@@ -161,7 +166,7 @@ export default function Notes({ onUpdate }: Props) {
                       key={i}
                       className={
                         tag.color +
-                        " flex-none select-non align-start items-center px-4 text-xs font-comic rounded-md"
+                        " flex-none select-non align-start items-center px-2 text-[10.5px] font-comic rounded-md"
                       }
                     >
                       {tag.name}

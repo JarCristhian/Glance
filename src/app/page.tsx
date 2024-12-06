@@ -7,13 +7,21 @@ import { ButtonOption } from "../components/me/buttonOption";
 import Notes from "./notes/notes";
 
 export default function Home() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [note, setNote] = useState(false);
   const [update, setUpdate] = useState(0);
 
   const openNote = () => {
     setNote(!note);
   };
+
+  if (status === "loading") {
+    return (
+      <div className="loading-page bg-white dark:bg-[#0a0911]">
+        <span className="loader" />
+      </div>
+    );
+  }
 
   return (
     <>

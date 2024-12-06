@@ -140,9 +140,9 @@ export function DialogLanguage({
   };
 
   const test = (svg: string) => {
-    const newSvg = svg.replace(' xmlns="http://www.w3.org/2000/svg"', "");
-    setSvg(newSvg);
-    setForm({ ...form, image: newSvg });
+    setSvg(svg);
+    // const newSvg = svg.replace(' xmlns="http://www.w3.org/2000/svg"', "");
+    // setForm({ ...form, image: svg });
   };
   return (
     <>

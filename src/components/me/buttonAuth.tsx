@@ -104,7 +104,7 @@ export default function ButtonAuth() {
                     </span>
                   </div>
                   <div className="w-4 h-4 opacity-50">
-                    <svg viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path
                         d="M12 5.83L15.17 9l1.41-1.41L12 3L7.41 7.59L8.83 9L12 5.83zm0 12.34L8.83 15l-1.41 1.41L12 21l4.59-4.59L15.17 15L12 18.17z"
                         fill="currentColor"
@@ -128,7 +128,7 @@ export default function ButtonAuth() {
                   }}
                 >
                   <div className="w-3.5 h-3.5">
-                    <svg viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path
                         fill="currentColor"
                         d="M12 2a5 5 0 1 0 5 5a5 5 0 0 0-5-5m0 8a3 3 0 1 1 3-3a3 3 0 0 1-3 3m9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"
@@ -147,7 +147,10 @@ export default function ButtonAuth() {
                     }}
                   >
                     <div className="w-3.5 h-3.5">
-                      <svg viewBox="0 0 24 24">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                      >
                         <path
                           fill="currentColor"
                           d="M4 18V6v13zm0 2q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h5.175q.4 0 .763.15t.637.425L12 6h8q.825 0 1.413.588T22 8v4q0 .425-.288.713T21 13t-.712-.288T20 12V8h-8.825l-2-2H4v12h4q.425 0 .713.288T9 19t-.288.713T8 20zm9.825-1l1.475 1.475q.3.3.3.7t-.3.7t-.712.3t-.713-.3L11.7 19.7q-.3-.3-.3-.7t.3-.7l2.175-2.175q.3-.3.713-.3t.712.3t.3.7t-.3.7zm6.35 0L18.7 17.525q-.3-.3-.3-.7t.3-.7t.713-.3t.712.3L22.3 18.3q.3.3.3.7t-.3.7l-2.175 2.175q-.3.3-.713.3t-.712-.3t-.3-.7t.3-.7z"
@@ -178,7 +181,10 @@ export default function ButtonAuth() {
                   onClick={() => handleSetLanguage()}
                 >
                   <div className="w-3.5 h-3.5">
-                    <svg viewBox="0 0 512 512">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
                       <path
                         fill="none"
                         stroke="currentColor"
@@ -239,7 +245,7 @@ export default function ButtonAuth() {
                   onClick={() => signOut()}
                 >
                   <div className="w-3.5 h-3.5">
-                    <svg viewBox="0 0 32 32">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                       <path
                         d="M6 30h12a2.002 2.002 0 0 0 2-2v-3h-2v3H6V4h12v3h2V4a2.002 2.002 0 0 0-2-2H6a2.002 2.002 0 0 0-2 2v24a2.002 2.002 0 0 0 2 2z"
                         fill="currentColor"

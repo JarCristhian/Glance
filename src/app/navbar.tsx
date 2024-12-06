@@ -30,7 +30,7 @@ export function NavBar() {
                   unoptimized={true}
                   priority={true}
                   alt=""
-                  placeholder="empty"
+                  placeholder="blur"
                 />
               </div>
               <div className=" select-none dark:text-white text-2xl">

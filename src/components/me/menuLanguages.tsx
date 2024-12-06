@@ -161,6 +161,7 @@ export function MenuLanguages({
             <div className="flex items-center text-gray-500 dark:text-gray-300">
               {type == 2 ? (
                 <svg
+                  xmlns="http://www.w3.org/2000/svg"
                   className="group-hover:hidden"
                   width="1em"
                   height="1em"
@@ -178,6 +179,7 @@ export function MenuLanguages({
                 </svg>
               ) : (
                 <svg
+                  xmlns="http://www.w3.org/2000/svg"
                   className="group-hover:hidden"
                   width="1em"
                   height="1em"
@@ -197,6 +199,7 @@ export function MenuLanguages({
                 </svg>
               )}
               <svg
+                xmlns="http://www.w3.org/2000/svg"
                 className="hidden group-hover:block"
                 width="1.5em"
                 height="1.5em"

@@ -8,7 +8,7 @@ export function ButtonNote({ onOpen, type }: Props) {
       <div
         className="fixed z-10 bottom-10 right-7 group flex justify-center items-center 
                 active:scale-90 duration-200 w-14 h-14 rounded-md p-2
-                shadow-lg hover:shadow-xl bg-white dark:bg-gray-800/90"
+                drop-shadow-lg bg-white dark:bg-gray-800/90"
       >
         <div
           className={
@@ -17,7 +17,13 @@ export function ButtonNote({ onOpen, type }: Props) {
               : "duration-100 group-active:rotate-90 grayscale"
           }
         >
-          <svg width="19px" height="21px" viewBox="0 0 19 21" version="1.1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="19px"
+            height="21px"
+            viewBox="0 0 19 21"
+            version="1.1"
+          >
             <g
               id="Page-1"
               stroke="none"
