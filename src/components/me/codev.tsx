@@ -27,7 +27,7 @@ export function Codev({
       lang: lang,
       theme: theme == "dark" ? themes.dark : themes.light,
     });
-    const styledHtml = `<div class="overflow-x-scroll scrollbar text-[12px] dark:scrollbar-dark h-44 rounded-lg select-none">${response}</div>`;
+    const styledHtml = `<div class="overflow-x-scroll scrollbar text-[11px] dark:scrollbar-dark h-44 rounded-lg select-none">${response}</div>`;
     setText(styledHtml);
   };
 

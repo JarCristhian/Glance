@@ -93,15 +93,16 @@ function Login() {
       toast.error(message);
       return;
     }
-
+    setLoading(true);
     const response = await api.postAll("auth/register", {
       name: nUser.name.trim(),
       email: nUser.email.trim() + "@gmail.com",
       password: nUser.password,
     });
-    console.log(response);
+    // console.log(response);
 
     if (response.status != 400) {
+      setLoading(false);
       const responseNextAuth = await signIn("credentials", {
         email: nUser.email.trim() + "@gmail.com",
         password: nUser.password,
@@ -349,6 +350,72 @@ function Login() {
                             onClick={createUser}
                             className="rounded-full w-full hover:scale-105 active:scale-95 duration-75 border cursor-pointer border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 px-4 sm:px-5"
                           >
+                            {loading && (
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="1em"
+                                height="1em"
+                                viewBox="0 0 24 24"
+                              >
+                                <defs>
+                                  <filter id="svgSpinnersGooeyBalls20">
+                                    <feGaussianBlur
+                                      in="SourceGraphic"
+                                      result="y"
+                                      stdDeviation={1}
+                                    ></feGaussianBlur>
+                                    <feColorMatrix
+                                      in="y"
+                                      result="z"
+                                      values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -7"
+                                    ></feColorMatrix>
+                                    <feBlend
+                                      in="SourceGraphic"
+                                      in2="z"
+                                    ></feBlend>
+                                  </filter>
+                                </defs>
+                                <g filter="url(#svgSpinnersGooeyBalls20)">
+                                  <circle
+                                    cx={5}
+                                    cy={12}
+                                    r={4}
+                                    fill="currentColor"
+                                  >
+                                    <animate
+                                      attributeName="cx"
+                                      calcMode="spline"
+                                      dur="2s"
+                                      keySplines=".36,.62,.43,.99;.79,0,.58,.57"
+                                      repeatCount="indefinite"
+                                      values="5;8;5"
+                                    ></animate>
+                                  </circle>
+                                  <circle
+                                    cx={19}
+                                    cy={12}
+                                    r={4}
+                                    fill="currentColor"
+                                  >
+                                    <animate
+                                      attributeName="cx"
+                                      calcMode="spline"
+                                      dur="2s"
+                                      keySplines=".36,.62,.43,.99;.79,0,.58,.57"
+                                      repeatCount="indefinite"
+                                      values="19;16;19"
+                                    ></animate>
+                                  </circle>
+                                  <animateTransform
+                                    attributeName="transform"
+                                    dur="0.75s"
+                                    repeatCount="indefinite"
+                                    type="rotate"
+                                    values="0 12 12;360 12 12"
+                                  ></animateTransform>
+                                </g>
+                              </svg>
+                            )}
                             {lang ? English.register : Spanish.register}
                           </button>
                         </div>

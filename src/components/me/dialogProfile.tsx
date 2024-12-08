@@ -321,28 +321,54 @@ export function DialogProfile({ show, onClose, setUpdate }: Props) {
               {active && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="1.5em"
-                  height="1.5em"
+                  width="1em"
+                  height="1em"
                   viewBox="0 0 24 24"
                 >
-                  <path
-                    fill="currentColor"
-                    d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8A8 8 0 0 1 12 20Z"
-                    opacity={0.5}
-                  ></path>
-                  <path
-                    fill="currentColor"
-                    d="M20 12h2A10 10 0 0 0 12 2V4A8 8 0 0 1 20 12Z"
-                  >
+                  <defs>
+                    <filter id="svgSpinnersGooeyBalls20">
+                      <feGaussianBlur
+                        in="SourceGraphic"
+                        result="y"
+                        stdDeviation={1}
+                      ></feGaussianBlur>
+                      <feColorMatrix
+                        in="y"
+                        result="z"
+                        values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 18 -7"
+                      ></feColorMatrix>
+                      <feBlend in="SourceGraphic" in2="z"></feBlend>
+                    </filter>
+                  </defs>
+                  <g filter="url(#svgSpinnersGooeyBalls20)">
+                    <circle cx={5} cy={12} r={4} fill="currentColor">
+                      <animate
+                        attributeName="cx"
+                        calcMode="spline"
+                        dur="2s"
+                        keySplines=".36,.62,.43,.99;.79,0,.58,.57"
+                        repeatCount="indefinite"
+                        values="5;8;5"
+                      ></animate>
+                    </circle>
+                    <circle cx={19} cy={12} r={4} fill="currentColor">
+                      <animate
+                        attributeName="cx"
+                        calcMode="spline"
+                        dur="2s"
+                        keySplines=".36,.62,.43,.99;.79,0,.58,.57"
+                        repeatCount="indefinite"
+                        values="19;16;19"
+                      ></animate>
+                    </circle>
                     <animateTransform
                       attributeName="transform"
-                      dur="1s"
-                      from="0 12 12"
+                      dur="0.75s"
                       repeatCount="indefinite"
-                      to="360 12 12"
                       type="rotate"
+                      values="0 12 12;360 12 12"
                     ></animateTransform>
-                  </path>
+                  </g>
                 </svg>
               )}
               <span className="ml-1  rounded-full">

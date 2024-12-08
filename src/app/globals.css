@@ -97,9 +97,9 @@ body {
   min-width: 100%;
   width: max-content;
 }
-.light-theme .shiki span {
+/* .light-theme .shiki span {
   padding: 0;
-}
+} */
 
 @layer base {
   * {
@@ -127,8 +127,12 @@ body {
     border-radius: 100vh;
   }
 
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
   ::selection {
-    background: #374151;
+    background: #707885;
     color: #fff;
   }
 
