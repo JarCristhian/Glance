@@ -111,12 +111,6 @@ export function DialogNote({ show, onClose, setNote }: Props) {
     }
   };
 
-  const saveEnter = (e: any) => {
-    if (e.key === "Enter") {
-      saveNote();
-    }
-  };
-
   const setMessage = () => {
     socket.emit("messageNotMe", !session ? "User" : session.user.user.name);
   };
@@ -163,7 +157,7 @@ export function DialogNote({ show, onClose, setNote }: Props) {
               </div>
             </div>
           </DialogHeader>
-          <form onKeyDown={saveEnter}>
+          <form>
             <div className="grid gap-3 space-y-1 py-4 -mt-3 sm:-mx-2">
               <div className="space-y-1.5">
                 <Label className={error == "Title" ? "text-amber-400" : ""}>
