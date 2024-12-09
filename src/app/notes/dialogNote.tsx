@@ -36,7 +36,7 @@ export function DialogNote({ show, onClose, setNote }: Props) {
   const notesService = new NotesService();
   const [tag, setTag] = useState<Tags>({
     name: "",
-    color: "bg-green-400 text-white",
+    color: "bg-teal-200 text-gray-950",
   });
   const [form, setForm] = useState<Store>({
     title: "",
@@ -69,6 +69,7 @@ export function DialogNote({ show, onClose, setNote }: Props) {
   };
 
   const clearNote = () => {
+    localStorage.setItem("downloader", "false");
     activeAnimation();
     setNote();
     setForm({ title: "", description: "", tags: [] });
@@ -135,7 +136,7 @@ export function DialogNote({ show, onClose, setNote }: Props) {
         >
           <DialogHeader>
             <div className="flex items-center gap-2">
-              <div className="opacity-70 w-10 h-10 p-1 hover:animate-spin">
+              <div className="opacity-90 w-10 h-10 p-1 hover:animate-spin">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <g fill="none">
                     <path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"></path>
@@ -201,57 +202,16 @@ export function DialogNote({ show, onClose, setNote }: Props) {
                       <DropdownMenuTrigger asChild>
                         <span
                           className={
-                            "absolute left-2 top-2.5 h-4 w-4 rounded-full cursor-pointer " +
+                            "absolute left-2 top-2 h-5 w-5 rounded-full cursor-pointer " +
                             tag.color
                           }
                         />
                       </DropdownMenuTrigger>
                       <DropdownMenuContent className="w-12">
                         <DropdownMenuGroup className="cursor-pointer">
-                          <DropdownMenuItem
-                            onClick={() =>
-                              setTag({ ...tag, color: "bg-sky-400 text-white" })
-                            }
-                          >
-                            <span className="h-2 w-2 rounded-full bg-sky-400" />
-                            Skyblue
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() =>
-                              setTag({
-                                ...tag,
-                                color: "bg-green-400 text-white",
-                              })
-                            }
-                          >
-                            <span className="h-2 w-2 rounded-full bg-green-400" />
-                            Green
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() =>
-                              setTag({
-                                ...tag,
-                                color: "bg-blue-700 text-white",
-                              })
-                            }
-                          >
-                            <span className="h-2 w-2 rounded-full bg-blue-700" />
-                            Blue
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() =>
-                              setTag({
-                                ...tag,
-                                color: "bg-primary text-primary-foreground",
-                              })
-                            }
-                          >
-                            <span className="h-2 w-2 rounded-full bg-primary" />
-                            Black
-                          </DropdownMenuItem>
                           <DropdownMenuSub>
                             <DropdownMenuSubTrigger>
-                              More...
+                              Default
                             </DropdownMenuSubTrigger>
                             <DropdownMenuPortal>
                               <DropdownMenuSubContent>
@@ -259,12 +219,66 @@ export function DialogNote({ show, onClose, setNote }: Props) {
                                   onClick={() =>
                                     setTag({
                                       ...tag,
-                                      color: "bg-violet-400 text-white",
+                                      color: "bg-white text-gray-950",
                                     })
                                   }
                                 >
-                                  <span className="h-2 w-2 rounded-full bg-violet-400" />
-                                  Violet
+                                  <span className="h-2 w-2 rounded-full bg-white" />
+                                  White
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-gray-200 text-gray-950",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-gray-200 " />
+                                  Gray
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-gray-700 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-gray-700" />
+                                  DarkGray
+                                </DropdownMenuItem>
+
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-gray-950 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-gray-950" />
+                                  Black
+                                </DropdownMenuItem>
+                              </DropdownMenuSubContent>
+                            </DropdownMenuPortal>
+                          </DropdownMenuSub>
+                          <DropdownMenuSub>
+                            <DropdownMenuSubTrigger>
+                              Calid
+                            </DropdownMenuSubTrigger>
+                            <DropdownMenuPortal>
+                              <DropdownMenuSubContent>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-amber-200 text-gray-950",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-amber-200 " />
+                                  Amber
                                 </DropdownMenuItem>
                                 <DropdownMenuItem
                                   onClick={() =>
@@ -281,13 +295,182 @@ export function DialogNote({ show, onClose, setNote }: Props) {
                                   onClick={() =>
                                     setTag({
                                       ...tag,
-                                      color:
-                                        "bg-secondary text-secondary-foreground",
+                                      color: "bg-orange-400 text-white",
                                     })
                                   }
                                 >
-                                  <span className="h-2 w-2 rounded-full bg-secondary" />
-                                  Gray
+                                  <span className="h-2 w-2 rounded-full bg-orange-400" />
+                                  Orange
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-red-500 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-red-500" />
+                                  Red
+                                </DropdownMenuItem>
+                              </DropdownMenuSubContent>
+                            </DropdownMenuPortal>
+                          </DropdownMenuSub>
+                          <DropdownMenuSub>
+                            <DropdownMenuSubTrigger>
+                              Peace
+                            </DropdownMenuSubTrigger>
+                            <DropdownMenuPortal>
+                              <DropdownMenuSubContent>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-teal-200 text-gray-950",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-teal-200 " />
+                                  Teal
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-emerald-400 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                                  Emerald
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-green-500 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-green-500" />
+                                  Green
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-lime-500 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-lime-500" />
+                                  Lime
+                                </DropdownMenuItem>
+                              </DropdownMenuSubContent>
+                            </DropdownMenuPortal>
+                          </DropdownMenuSub>
+                          <DropdownMenuSub>
+                            <DropdownMenuSubTrigger>
+                              Colds
+                            </DropdownMenuSubTrigger>
+                            <DropdownMenuPortal>
+                              <DropdownMenuSubContent>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-cyan-300 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-cyan-300 " />
+                                  Cyan
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-sky-500 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-sky-500" />
+                                  Sky
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-blue-600 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-blue-600" />
+                                  Blue
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-indigo-800 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-indigo-800" />
+                                  Indigo
+                                </DropdownMenuItem>
+                              </DropdownMenuSubContent>
+                            </DropdownMenuPortal>
+                          </DropdownMenuSub>
+                          <DropdownMenuSub>
+                            <DropdownMenuSubTrigger>
+                              Roses
+                            </DropdownMenuSubTrigger>
+                            <DropdownMenuPortal>
+                              <DropdownMenuSubContent>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-violet-400 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-violet-400 " />
+                                  Violet
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-purple-600 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-purple-600" />
+                                  Purple
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-fuchsia-400 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-fuchsia-400" />
+                                  Fuchsia
+                                </DropdownMenuItem>
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    setTag({
+                                      ...tag,
+                                      color: "bg-pink-400 text-white",
+                                    })
+                                  }
+                                >
+                                  <span className="h-2 w-2 rounded-full bg-pink-400" />
+                                  Pink
                                 </DropdownMenuItem>
                               </DropdownMenuSubContent>
                             </DropdownMenuPortal>

@@ -33,9 +33,7 @@ export function NavBar() {
                   placeholder="blur"
                 />
               </div>
-              <div className=" select-none dark:text-white text-2xl">
-                Glance
-              </div>
+              <div className="select-none dark:text-white text-2xl">Glance</div>
             </div>
             <ButtonAuth />
           </div>

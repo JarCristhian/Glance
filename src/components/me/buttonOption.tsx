@@ -30,7 +30,7 @@ export function ButtonOption({ onMyNotes, onAllNotes }: Props) {
           <div
             className="fixed z-10 bottom-28 right-10 group flex justify-center items-center 
                 active:scale-90 duration-200 w-8 h-8 rounded-md p-2
-                drop-shadow-lg bg-white dark:bg-gray-800/70"
+                drop-shadow-lg bg-white dark:bg-gray-800"
           >
             <div className="flex items-center w-10 h-8 text-gray-500 dark:text-gray-300">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">

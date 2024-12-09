@@ -1,15 +1,23 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { ButtonNote } from "../components/me/buttonNote";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DialogNote } from "./notes/dialogNote";
 import { ButtonOption } from "../components/me/buttonOption";
+import { DownloadThanks } from "../components/me/download";
 import Notes from "./notes/notes";
 
 export default function Home() {
   const { data: session, status } = useSession();
   const [note, setNote] = useState(false);
   const [update, setUpdate] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("downloader") == "false") {
+      setIsVisible(true);
+    }
+  }, [update]);
 
   const openNote = () => {
     setNote(!note);
@@ -36,6 +44,11 @@ export default function Home() {
           onAllNotes={() => setUpdate(0)}
           onMyNotes={() => setUpdate(1)}
         />
+      )}
+      {update != 0 || isVisible ? (
+        <DownloadThanks status={status} verify={isVisible} />
+      ) : (
+        <></>
       )}
       <div className="h-screen w-full p-4 overflow-x-hidden overflow-y-scroll scrollbar dark:scrollbar-dark">
         <main className="items-center p-2 pt-14 md:p-16">
